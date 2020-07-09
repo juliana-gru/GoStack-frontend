@@ -17,7 +17,21 @@ module.exports = {
         use: {
           loader: 'babel-loader', //use loader in those .js files
         }
+      },
+      {
+        test: /\.css$/, //regex that looks for files that end with .css
+        exclude: /node_modules/, // excludes js files in this folder
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+        ]
+      },
+      {
+        test: /.*\.(gif|png|jpe?g)$/i,
+        use: {
+          loader: 'file-loader'     
+        }
       }
-    ],
+    ]
 	},
 };
